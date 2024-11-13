@@ -1,0 +1,90 @@
+# macOS system files
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+._*
+
+# macOS resource fork
+AppleDouble
+.LSOverride
+
+# macOS Finder directory attributes
+Icon
+Icon\r
+
+# macOS metadata
+.DS_Store
+._*
+
+# Temporary files
+*.swp
+*.swo
+
+# macOS quarantine and Finder-specific files
+.AppleDouble
+.VolumeIcon.icns
+.metadata_never_index
+*.localized
+
+# macOS files to ignore when compressing
+Thumbs.db
+Desktop.ini
+
+# Ignore application-specific caches or files
+.idea/
+.vscode/
+node_modules/
+venv/
+.env
+
+# Xcode files
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+*.xcodeproj/
+
+# macOS Logs
+logs/
+*.log
+
+# Compiled object files and other temporary files
+*.o
+*.so
+*.out
+*.a
+*.pyc
+*.pyo
+*.class
+*.dll
+*.exe
+
+# macOS crash reports
+*.crash
+
+# macOS Git files
+*.orig
+
+# Homebrew generated files
+/Caskroom/
+Cellar/
+*.brew
+
+# Temporary files during git merge/rebase
+*.orig
+
+# Ignore all hidden files starting with .
+.*
+!.gitignore
+
+# macOS Trash folder, doesn't affect Git
+.Trashes
+
+# Disk image files
+*.dmg
+*.iso
+
+# Core dumps
+core.*
+
