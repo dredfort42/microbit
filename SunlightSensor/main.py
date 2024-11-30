@@ -1,63 +1,66 @@
 from microbit import *
 
 # Custom image map
-image_data = [
-    [1, 0, 1, 0, 1],
-    [0, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1],
-    [0, 1, 1, 1, 0],
-    [1, 0, 1, 0, 1],
+image_data_level = [
+    [
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+    ],
+    [
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,1,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+    ],
+    [
+        [0,0,0,0,0],
+        [0,1,0,1,0],
+        [0,0,1,0,0],
+        [0,1,0,1,0],
+        [0,0,0,0,0]
+    ],
+    [
+        [0,0,0,0,0],
+        [0,1,1,1,0],
+        [0,1,1,1,0],
+        [0,1,1,1,0],
+        [0,0,0,0,0]
+    ],
+    [
+        [1,0,1,0,1],
+        [0,1,1,1,0],
+        [1,1,1,1,1],
+        [0,1,1,1,0],
+        [1,0,1,0,1]
+    ],
+    [
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1]
+    ]
 ]
 
-level_1 = [
-    [0,0,0,0,0],
-    [0,0,0,0,0],
-    [0,0,1,0,0],
-    [0,0,0,0,0],
-    [0,0,0,0,0],
-]
-
-level_2 = [
-    [0,0,0,0,0],
-    [0,1,0,1,0],
-    [0,0,1,0,0],
-    [0,1,0,1,0],
-    [0,0,0,0,0],
-]
-
-level_3 = [
-    [0,0,0,0,0],
-    [0,1,1,1,0],
-    [0,1,1,1,0],
-    [0,1,1,1,0],
-    [0,0,0,0,0],
-]
-
-level_4 = [
-    [1,0,1,0,1],
-    [0,1,1,1,0],
-    [1,1,1,1,1],
-    [0,1,1,1,0],
-    [1,0,1,0,1],
-]
-
-level_4 = [
-    [1,1,1,1,1],
-    [1,1,1,1,1],
-    [1,1,1,1,1],
-    [1,1,1,1,1],
-    [1,1,1,1,1],
-]
-
-def adjust_brightness(image_data, brightness):
+def adjust_brightness(brightness):
     image_string = ""
-    for row in image_data:
-        row_string = "".join(str(val * brightness) for val in row)
+
+    grade = int(brightness / int(255 / 6))
+    if grade > 5:
+        grade = 5
+
+    image = image_data_level[5 - grade]
+    
+    for row in image:
+        row_string = "".join(str(val * (9 - grade)) for val in row)
         image_string += row_string + ":"
     return Image(image_string[:-1])
 
-brightness = 5  # Set brightness (0-9)
 
 while True:
-    display.show(adjust_brightness(image_data, int(display.read_light_level() / 255 * 9)))
+    display.show(adjust_brightness(display.read_light_level()))
     sleep(100)
