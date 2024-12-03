@@ -48,8 +48,12 @@ image_data_level = [
 
 def adjust_brightness(brightness):
     image_string = ""
+    rightShift = 155
 
-    grade = int(brightness / int(255 / 6))
+    if brightness + rightShift > 255:
+        brightness = 255
+    
+    grade = int((brightness) / int(rightShift / 6))
     if grade > 5:
         grade = 5
 
