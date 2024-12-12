@@ -65,7 +65,7 @@ sleep(200)
     
 display.clear()
 
-compass.calibrate()
+# compass.calibrate()
 
 sector = 360/8
 start = 360 - (sector/2)
