@@ -1,0 +1,6 @@
+﻿Name,Quantity,Component
+"Rpot1",1,"250 kΩ Potentiometer"
+"K1",1," Relay SPDT"
+"MB1",1,"Red micro:bit"
+"BAT1",1," 9V Battery"
+"Meter1, Meter2, Meter3",3,"Voltage Multimeter"
